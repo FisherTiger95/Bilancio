@@ -4,18 +4,23 @@ import java.util.Date;
 
 public class Transaction {
 	
+	public enum TypeOfTransaction{
+		income,
+		expense;
+	}
+	
 	private float amount;
 	private Date date;
 	private String description;
-	private boolean entry;
+	private TypeOfTransaction type;
 	
 	public Transaction(){}
 	
-	public Transaction(Date date, String description, float amount, boolean entry){
+	public Transaction(Date date, String description, float amount, TypeOfTransaction type){
 		this.date = date;
 		this.description = description;
 		this.amount = amount;
-		this.entry = entry;
+		this.type = type;
 	}
 	
 	public float getAmount() {
@@ -42,11 +47,11 @@ public class Transaction {
 		this.description = description;
 	}
 	
-	public boolean isEntry() {
-		return entry;
+	public TypeOfTransaction getTypeOfTransaction() {
+		return type;
 	}
 
-	public void setEntry(boolean entry) {
-		this.entry = entry;
+	public void setTypeOfTransaction(TypeOfTransaction type) {
+		this.type = type;
 	}
 }
